@@ -43,6 +43,7 @@ import java.util.List;
 
 // Make sure to import these classes
 import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.modules.fresco.FrescoModule;
 import com.facebook.react.modules.network.NetworkingModule;
 import com.facebook.react.modules.storage.AsyncStorageModule;
