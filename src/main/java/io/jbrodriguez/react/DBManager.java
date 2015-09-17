@@ -19,7 +19,7 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.common.ReactConstants;
 // import com.facebook.react.modules.common.ModuleDataCleaner;
 
-import com.apertoire.react.SQLiteManager;
+import io.jbrodriguez.react.SQLiteManager;
 
 // public final class DBManager extends ReactContextBaseJavaModule implements ModuleDataCleaner.Cleanable {
 
