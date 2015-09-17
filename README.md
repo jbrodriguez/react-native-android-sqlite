@@ -6,7 +6,7 @@ A react native android wrapper for SQLite
 
 React Native doesn't have a built-in module to access Sqlite databases, either in iOS or Android.
 
-This library intends to fill the gap in the Android side.
+This library intends to fill the gap on the Android side.
 
 ## Setup
 
@@ -16,7 +16,7 @@ This library intends to fill the gap in the Android side.
 npm install --save-dev react-native-android-sqlite
 ```
 
-* `android/setting.gradle`
+* `android/settings.gradle`
 
 ```gradle
 ...
