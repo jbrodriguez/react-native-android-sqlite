@@ -1,0 +1,16 @@
+{
+  "name": "react-native-android-sqlite",
+  "description": "A react native android wrapper for SQLite",
+  "version": "0.1.1",
+  "main": "index.android.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jbrodriguez/react-native-android-sqlite.git"
+  },
+  "author": "Juan B. Rodriguez",
+  "license": "MIT",
+  "homepage": "https://github.com/jbrodriguez/react-native-android-sqlite#readme",
+  "peerDependencies": {
+    "react-native": "^0.11.0"
+  }
+}
