@@ -4,9 +4,9 @@ A react native android wrapper for SQLite
 
 ## Rationale
 
-React Native doesn't have a built-in module to access Sqlite database, either in iOS or Android.
+React Native doesn't have a built-in module to access Sqlite databases, either in iOS or Android.
 
-This library intents to fill the gap in the Android side.
+This library intends to fill the gap in the Android side.
 
 ## Setup
 
@@ -41,6 +41,7 @@ dependencies {
 import java.util.Arrays;
 import java.util.List;
 
+// Make sure to import these classes
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.modules.fresco.FrescoModule;
 import com.facebook.react.modules.network.NetworkingModule;
@@ -52,6 +53,7 @@ import io.jbrodriguez.react.DBManager
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 	...
 	
+	// create this class
 	private class AppPackage extends MainReactPackage {
 		@Override
 		public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
@@ -88,7 +90,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 }
 ```
 
-Please note that the `createNativeModules` function deviates from the standard proposal from Facebook, because it didn't work.
+Please note that the `createNativeModules` function deviates from the standard docs from Facebook, because it didn't work.
 
 At this early stage in RN Android, I suspect it's a bug more than anything else.
 
@@ -96,7 +98,7 @@ At this early stage in RN Android, I suspect it's a bug more than anything else.
 
 This library depends on [SQLiteAssetHelper](https://github.com/jgilfelt/android-sqlite-asset-helper).
 
-The idea is that you `import` your previously created database as an application's asset.
+The idea is that you `import` your previously created database as an application asset.
 
 SQLiteAssetHelper manages schema definition (create), as well as upgrades.
 
@@ -169,7 +171,7 @@ sqlite.query(sql, params)
 * It doesn't return the id for a newly inserted row (maybe create a separate insert function ?)
 * Column types currently supported are Integer and String
 * Additional error handling should be implemented
-* The `createNativeModules` function eventually needs to return to official documentation's spec
+* The `createNativeModules` function eventually needs to return to official docs' spec
 * Although I'm using it in my personal projects, it's still an early release. Please do read the [license](https://github.com/jbrodriguz/react-native-android-sqlite/README.md)
 
 ## Changes
