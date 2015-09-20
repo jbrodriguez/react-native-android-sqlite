@@ -103,4 +103,21 @@ public final class DBManager extends ReactContextBaseJavaModule {
 		}.execute();
 	}
 
+	@ReactMethod
+	public void close(final Callback callback) {
+		new GuardedAsyncTask<Void, Void>(getReactApplicationContext()) {
+			@Override
+			protected void doInBackgroundGuarded(Void ...params) {
+				try {
+					mDb.close();
+				} catch(Exception e) {
+					FLog.w(ReactConstants.TAG, "Exception in database close: ", e);
+					callback.invoke(ErrorUtil.getError(null, e.getMessage()), null);
+				}
+
+				callback.invoke();
+			}
+		}.execute();
+	}	
+
 }
