@@ -83,11 +83,12 @@ So, the first step involves copying your sqlite db to the following folder
 
 Substitute `<ReactNativeRootFolder>` for the folder where your app resides, i.e. AwesomeProject.
 
-Having done that, you can start interacting with the db, through 3 public functions:
+Having done that, you can start interacting with the db, through 4 public functions:
 
 - init
 - query
 - exec
+- close
 
 ### Init
 The database must be initialized before any other call takes place
@@ -135,6 +136,17 @@ sqlite.query(sql, params)
 	.then((data) => {
 		console.log('retrieved: ', data)
 	}
+)
+```
+
+### Close
+pre-requisite: the db must have been initialized
+
+```js
+sqlite.close()
+    .then((_) => {
+        console.log('database closed')
+    }
 )
 ```
 
