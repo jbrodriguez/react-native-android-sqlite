@@ -90,7 +90,7 @@ Having done that, you can start interacting with the db, through 3 public functi
 - exec
 
 ### Init
-The database must be initialized before any other call
+The database must be initialized before any other call takes place
 
 ```js
 var sqlite = require('react-native-android-sqlite')
