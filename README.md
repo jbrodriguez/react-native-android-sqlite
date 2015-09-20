@@ -38,36 +38,9 @@ dependencies {
 ```java
 ...
 
-import java.util.Arrays;
-import java.util.List;
-
-// Make sure to import these classes
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.modules.fresco.FrescoModule;
-import com.facebook.react.modules.network.NetworkingModule;
-import com.facebook.react.modules.storage.AsyncStorageModule;
-import com.facebook.react.modules.toast.ToastModule;
-
-import io.jbrodriguez.react.DBManager
+import io.jbrodriguez.react.*; <--- import 
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
-	...
-	
-	// create this class
-	private class AppPackage extends MainReactPackage {
-		@Override
-		public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-			return Arrays.<NativeModule>asList(
-				new AsyncStorageModule(reactContext),
-				new FrescoModule(reactContext),
-				new NetworkingModule(reactContext),
-				new ToastModule(reactContext),
-				new DBManager(reactContext)
-			);
-		}
-	}
-	
 	...
 	
     @Override
@@ -79,7 +52,8 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setApplication(getApplication())
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
-                .addPackage(new AppPackage())                  // <-------- note the change here
+                .addPackage(new MainReactPackage())
+                .addPackage(new RNSQLiteModule())           // <- add heree
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -90,10 +64,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     }	
 }
 ```
-
-Please note that the `createNativeModules` function deviates from the standard docs from Facebook, because it didn't work.
-
-At this early stage in RN Android, I suspect it's a bug more than anything else.
 
 ## Usage
 
@@ -172,7 +142,6 @@ sqlite.query(sql, params)
 * It doesn't return the id for a newly inserted row (maybe create a separate insert function ?)
 * Column types currently supported are Integer and String
 * Additional error handling should be implemented
-* The `createNativeModules` function eventually needs to return to official docs' spec
 * Although I'm using it in my personal projects, it's still an early release. Please do read the [license](https://github.com/jbrodriguz/react-native-android-sqlite/README.md)
 
 ## Changes
