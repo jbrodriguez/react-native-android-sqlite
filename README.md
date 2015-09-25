@@ -38,7 +38,7 @@ dependencies {
 ```java
 ...
 
-import io.jbrodriguez.react.*; <--- import 
+import io.jbrodriguez.react.*; // <--- import 
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 	...
@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .addPackage(new RNSQLiteModule())           // <- add heree
+                .addPackage(new RNSQLiteModule())           // <- add here
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
