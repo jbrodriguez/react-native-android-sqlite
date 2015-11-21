@@ -1,7 +1,7 @@
 {
   "name": "react-native-android-sqlite",
   "description": "A react native android wrapper for SQLite",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "index.android.js",
   "keywords": [
     "react-component",
