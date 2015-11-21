@@ -78,10 +78,11 @@ For more information refer to [SQLiteAssetHelper's docs](https://github.com/jgil
 So, the first step involves copying your sqlite db to the following folder
 
 ```
-<ReactNativeRootFolder>/node_modules/react-native-android-sqlite/src/main/assets/databases
+<YourProject>/android/app/src/main/assets/databases
 ```
+Substitute `<YourProject>` with the folder where your app resides, i.e. AwesomeProject.
 
-Substitute `<ReactNativeRootFolder>` for the folder where your app resides, i.e. AwesomeProject.
+> **NOTE**: Originally, I suggested copying the sqlite db to `<ReactNativeRootFolder>/node_modules/react-native-android-sqlite/src/main/assets/databases`. Although it works, the db will be erased each time you upgrade this component, so it's better to follow the updated instructions.
 
 Having done that, you can start interacting with the db, through 4 public functions:
 
