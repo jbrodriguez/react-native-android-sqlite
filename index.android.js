@@ -53,22 +53,20 @@ var Sqlite = {
 		});
 	},
 
-	storeEvent: function(
-		sql: string,
-		params: Array<?(number|string)>,		
-		callback?: ?(error: ?Error, result: ?string) => void
-	): Promise {
-		return new Promise((resolve, reject) => {
-			DBManager.execute(sql, params, function(errors, result) {
-				callback && callback((errors && convertError(errors[0])) || null, result);
-				if (errors) {
-					reject(convertError(errors[0]));
-				} else {
-					resolve(result)
-				}				
-			});
-		});
-	}
+	close: function(
+        callback?: ?(error: ?Error, result: ?string) => void
+    ): Promise {
+        return new Promise((resolve, reject) => {
+            DBManager.close(function(errors, result) {
+                callback && callback((errors && convertError(errors[0])) || null, result);
+                if (errors) {
+                    reject(convertError(errors[0]));
+                } else {
+                    resolve(result)
+                }
+            });
+        });
+    },
 }
 
 function convertError(error) {
